@@ -34,6 +34,13 @@ namespace banking_lib_utilities{
         }
         
         bool uid_exists(T uid){
+            /*
+             * uid_exists check if the uid exists in allocated list
+             * :param uid: unique id
+             * :type uid: template<typename T>
+             * :return: true if the id exists else false
+             * :rtype: bool
+             */
             auto itr = find(this->m_allocated_id.begin(),
                             this->m_allocated_id.end(),
                             uid);
@@ -44,6 +51,11 @@ namespace banking_lib_utilities{
             return true;
         }
         T create_new_uid(){
+            /*
+             * create_new_uid will create a new uid
+             * :return: newly generated uid
+             * :rtype: template<typename T>
+             */
             T uid;
             do {
                 uid = this->random_uid();
@@ -52,6 +64,13 @@ namespace banking_lib_utilities{
             return uid;
         }
         bool release_uid(T uid){
+            /*
+             * release_uid will release the uid from the allocated_list
+             * :param uid: unique id to be released
+             * :type uid: template<typename T>
+             * :return: true if the id is successfully released else false
+             * :rtype: bool
+             */
             if (this->uid_exists(uid)){
                 this->m_allocated_id.remove(uid);
                 return true;
@@ -61,9 +80,19 @@ namespace banking_lib_utilities{
             }
         }
         list<T> get_all_allocated_uid(){
+            /*
+             * get_all_allocated_uid will get all the allocated uids
+             * :return: list of allocated uids
+             * :rtype: list<template<typename T>>
+             */
             return this->m_allocated_id;
         }
         T random_uid(){
+            /*
+             * rand_uid will generate the random uid depending on template type
+             * :return: uid generated
+             * :rtype: template<typename T>
+             */
             auto randchar_int = []() -> char
             {
                 const char charset[] =
@@ -96,6 +125,7 @@ namespace banking_lib_utilities{
             return value;
         }
         
+        //Make the instantiation only through the friend class
         friend class UIDNumeric;
         friend class UIDAlphaNumeric;
         
