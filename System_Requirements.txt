@@ -1,0 +1,70 @@
+Banking Management System
+
+System Requirements
+
+Following set of requirements will be focused while designing Banking Management system
+
+Terminologies
+
+1. Any person holding account in bank is termed as customer
+2. Any person working in bank is termed as employee
+
+
+1. Any customer should be able to access their account to know the current balance, withdraw money and deposit money
+2. Each customer will have a unique customer identification number
+3. Each customer may have one or more account in the bank
+4. Each bank account will have 
+	a. unique account number 
+	b. type of account 
+	c. list of customers 
+	d. their cash balance 
+	e. history of transaction
+5. Each transaction will have 
+	a. date and time of transaction, 
+	b. mode of transaction 
+	c. transaction reference id
+	d. type of transaction
+6. Account type could be of any of the following type
+	a. Savings Account (SB Account)
+	b. Current Account 
+	c. Fixed Deposit Account (FD Account)
+7. Each Savings Account may have the following
+	a. list of customers
+	b. balance
+	c. rate_of_interest
+	d. Minimum_Balance
+	e. list of transactions
+	f. special_account status
+8. Each special account maybe any of the following
+	a. Student account
+	b. Senior citizens
+9. Each Current Account may have the following
+	a. list of customers
+	b. balance
+	c. minimum_balance
+	d. overdraft_limit
+	e. list of transactions
+10. Each fixed deposit account
+	a. deposit_amount
+	b. deposit_start_data
+	c. deposit_mature date
+	d. deposit_mature amount
+	e. rate_of_interest
+11. Transaction type can be of the following
+	a. Credit (deposit)
+	b. Debit  (withdraw cash, amount transfer)
+12. Type of credit transaction
+	a. deposit amount
+	b. amount received via transfer
+	c. interest capitalised
+13. Type of Debit transaction
+	a. withdraw amount
+	b. transfer amount
+	c. bank charges
+	d. commission
+14. Mode of transaction can be of following
+	a. On-Prem Transaction (Transaction happened on bank premises
+	b. ATM Transaction (Transaction happened on ATM Machine)
+	c. Online Transaction (Transaction happened using net-banking) 
+
+
