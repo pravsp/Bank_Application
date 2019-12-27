@@ -1,0 +1,50 @@
+
+##################################
+# Download and install JsonCpp
+##################################
+#include(jsoncpp.cmake)
+configure_file(CMakeLists.txt.in jsoncpp-download/CMakeLists.txt)
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/jsoncpp-download)
+if(result)
+  message(FATAL_ERROR "CMake step for jsoncpp failed: ${result}")
+endif()
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/jsoncpp-download )
+if(result)
+  message(FATAL_ERROR "Build step for jsoncpp failed: ${result}")
+endif()
+
+
+# Add jsoncpp directly to our build. This defines
+# the jsoncpp and jsoncpp targets.
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/jsoncpp-build
+                 ${CMAKE_CURRENT_BINARY_DIR}/jsoncpp-src
+                 EXCLUDE_FROM_ALL)
+
+# The gtest/gtest_main targets carry header search path
+# dependencies automatically when using CMake 2.8.11 or
+# later. Otherwise we have to add them here ourselves.
+if (CMAKE_VERSION VERSION_LESS 2.8.11)
+  include_directories("${jsoncpp_SOURCE_DIR}/include")
+endif()
+
+
+
+################
+
+file(GLOB BANK_UTILS_SOURCES "*.cc")
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${jsoncpp_INCLUDE_DIR})
+
+add_library(bank_utils STATIC
+            ${BANK_UTILS_SOURCES})
+target_link_libraries(bank_utils libjsoncpp.a)
+
+
+
+#target_include_directories(bank_utils PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/jsoncpp/src/jsoncpp)
+target_include_directories (bank_utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+install(TARGETS bank_utils DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
