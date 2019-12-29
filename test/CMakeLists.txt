@@ -36,3 +36,4 @@ endif()
 ################
 
 add_subdirectory(utilities)
+add_subdirectory(banking_lib)

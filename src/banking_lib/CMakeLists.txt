@@ -1,6 +1,7 @@
 file(GLOB BANK_OPER_SOURCES "*.cc")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/src/banking_utils/include)
+include_directories(${CMAKE_SOURCE_DIR}/dist)
 
 add_library(bank_oper STATIC
             ${BANK_OPER_SOURCES})

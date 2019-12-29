@@ -12,6 +12,7 @@ namespace banking_lib {
         BankingOperation(string bank_name, string branch);
         void InitializeBank(string name, string branch, Address* addr);
         ~BankingOperation();
+        BankingOperation(string cfg_file);
         
 
     };

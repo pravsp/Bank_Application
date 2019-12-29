@@ -25,7 +25,13 @@ namespace banking_lib{
     }
     BankingOperation::BankingOperation(){
         cout<<"Bank Operation default constructor"<<endl;
+        string cfg_file = "/Users/praveen/Desktop/my_data/My_Project/Banking_System/config/ABC_bank_hrbr.json";
+        this-> m_bank = Bank::start_bank_operations(cfg_file);
         //banking_lib_utilities::SysUtils::trace_back();
-        this->m_bank = NULL;
+        
+    }
+    BankingOperation::BankingOperation(string cfg_file){
+        cout<<"Bank Operation called with cfg file: "<<cfg_file<<endl;
+        this-> m_bank = Bank::start_bank_operations(cfg_file);
     }
 }

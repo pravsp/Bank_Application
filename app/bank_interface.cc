@@ -41,13 +41,15 @@ int BankingInterface::get_user_option(){
     return user_option - 1;
 }
 void BankingInterface::get_bank_instance(){
+    /*
     string bank_name;
     string branch_name;
     cout <<"Enter Bank Name:";
     cin >> bank_name;
     cout <<"ENter Branch Name:";
     cin >> branch_name;
-    this->m_bank = new BankingOperation(bank_name, branch_name);
+    */
+    this->m_bank = new BankingOperation();
 }
 void BankingInterface::start_bank_operation(){
     do{

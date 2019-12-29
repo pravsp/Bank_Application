@@ -1,7 +1,7 @@
 #include<iostream>
 #include<map>
-#include "../include/uid_type.h"
-#include "../include/uid_numeric.h"
+#include "uid_type.h"
+#include "uid_numeric.h"
 
 
 using namespace std;

@@ -1,20 +1,13 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary")
 
-cc_library(
-    name = "banking-app-lib",
-    srcs = ["bank_interface.cc"],
-    hdrs = ["bank_interface.h"],
-    visibility = ["//visibility:public"],
-    deps = [
-        "//src/lib:banking-lib",
-    ]
-)
 
 cc_binary(
     name = "banking-app",
-    srcs = ["banking_app.cc"],
+    srcs = glob(["**/*.cc","**/*.h"]),
     deps = [
-        "//src/lib:banking-lib",
-        "//src/main:banking-app-lib",
+        "//src/banking_lib:banking-oper",
+        "//src/banking_utils:bank-utils",
+        "//dist:jsoncpp",
     ],
+    copts = ["-Isrc/banking_lib/include"],
 )

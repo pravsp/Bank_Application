@@ -21,5 +21,5 @@ enable_testing() # needed on top-level CmakeLists.txt
 
 add_subdirectory(dist)
 add_subdirectory(src)
-#add_subdirectory(test)
+add_subdirectory(test)
 add_subdirectory(app)

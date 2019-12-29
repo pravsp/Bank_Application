@@ -1,14 +1,14 @@
 load("@rules_cc//cc:defs.bzl", "cc_library")
 
+
 cc_library(
-    name = "banking-lib-utilities",
-    srcs = glob(["**/src/*.cc"]),
+    name = "bank-utils",
+    srcs = glob(["**/*.cc"]),
     hdrs = glob(["**/include/*.h"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/dist:jsoncpp",
+        "//dist:jsoncpp",
     ],
-    copts = ["-Isrc/dist/json"],
-    alwayslink=1,
-    linkstatic=1,
+    copts = ["-Idist","-Isrc/banking_utils/include"],
+    
 )

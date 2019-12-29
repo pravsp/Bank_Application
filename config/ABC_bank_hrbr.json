@@ -1,0 +1,11 @@
+{
+    "BankName": "ABC",
+    "BankBranch": "HRBR",
+    "Address": {
+        "Street": "MGRoad",
+        "City": "BLR",
+        "State": "KA",
+        "Country": "IN",
+        "Zipcode": "560019,"
+    }
+}

@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "src/utilities/include/uid_numeric.h"
-#include "src/utilities/include/uid_alphanumeric.h"
+#include "uid_numeric.h"
+#include "uid_alphanumeric.h"
 
 using namespace banking_lib_utilities;
 using namespace std;

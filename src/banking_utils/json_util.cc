@@ -38,5 +38,14 @@ namespace banking_lib_utilities{
         }
 
     }
-
+    /*
+    map<string, string> convertJsontoStringMap(Json::Value root){
+        map<string, string> json_map;
+        for (auto itr = root.begin(); itr != root.end(); itr++){
+            auto key = itr.key().asString();
+            json_map.insert(make_pair(key, root[key].asString()));
+        }
+        return json_map;
+    }
+    */
 }

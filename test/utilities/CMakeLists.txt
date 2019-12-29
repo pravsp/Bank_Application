@@ -2,7 +2,9 @@
 # Define a test
 file(GLOB UTILITIES_TEST_SOURCES "*.cc")
 
-include_directories(${PROJECT_SOURCE_DIR}/src/lib/include)
+include_directories(${PROJECT_SOURCE_DIR}/src/banking_utils/include)
+include_directories(${PROJECT_SOURCE_DIR}/src/banking_lib/include)
+#include_directories(${CMAKE_SOURCE_DIR}/src/banking_utils/include)
 add_executable(utilities_test ${UTILITIES_TEST_SOURCES})
 target_link_libraries(utilities_test gtest_main)
 set_property(TARGET utilities_test PROPERTY CXX_STANDARD 17)
@@ -17,7 +19,10 @@ set_property(TARGET utilities_test PROPERTY CXX_STANDARD 17)
 # include_directories(${source_dir}/include)
 # target_link_libraries(template_test ${binary_dir}/libgtest.a)
 # target_link_libraries(template_test ${binary_dir}/libgtest_main.a)
-target_link_libraries(utilities_test ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lbank_utils.a)
+target_link_libraries(utilities_test ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libbank_utils.a)
+target_link_libraries(utilities_test ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libbank_oper.a)
+target_link_libraries(utilities_test ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libjsoncpp.a)
+
 
 ##################################
 # Just make the test runnable with

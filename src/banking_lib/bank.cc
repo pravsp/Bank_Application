@@ -2,10 +2,11 @@
 #include<map>
 #include<iterator>
 #include "include/bank.h"
+#include "json_util.h"
 
 
 using namespace std;
-
+using namespace banking_lib_utilities;
 namespace banking_lib {
     Bank::Bank(string name, string branch, Address* addr){
         this->name = name;
@@ -47,5 +48,23 @@ namespace banking_lib {
         } else {
             cout << "Bank destructor with Null address"<<endl;
         }
+    }
+    Bank* Bank::start_bank_operations(string cfg_file){
+        //cfg_file is expected to be the absolute path of config file
+        JsonUtil jsn_utl = JsonUtil(cfg_file);
+        auto jsn_obj = jsn_utl.readFromJson();
+        auto bank_name = jsn_obj["BankName"];
+        auto bank_branch = jsn_obj["BankBranch"];
+        auto addr = jsn_obj["Address"];
+        cout << "bank_name: "<<bank_name<<endl;
+        cout << "bank_branch_name: "<<bank_branch<<endl;
+        //cout << "bank_address: "<<addr<<endl;
+        //cout << addr.isString() << endl;
+        auto addr_obj = Address::get_address_from_map(jsn_utl.convertJsontoStringMap(addr));
+        auto bank_obj = new Bank(bank_name.asString(), bank_branch.asString(), addr_obj);
+        return bank_obj;
+    }
+    void Bank::set_bank_config(string cfg_file){
+        this->cfg_file = cfg_file;
     }
 }
