@@ -3,6 +3,7 @@
 #include<iterator>
 #include "include/bank.h"
 #include "json_util.h"
+#include "employee.h"
 
 
 using namespace std;
@@ -60,8 +61,9 @@ namespace banking_lib {
         cout << "bank_branch_name: "<<bank_branch<<endl;
         //cout << "bank_address: "<<addr<<endl;
         //cout << addr.isString() << endl;
-        auto addr_obj = Address::get_address_from_map(jsn_utl.convertJsontoStringMap(addr));
+        auto addr_obj = Address::get_address_from_map(JsonUtil::convertJsontoStringMap(addr));
         auto bank_obj = new Bank(bank_name.asString(), bank_branch.asString(), addr_obj);
+        Employee::create_uid_pool();
         return bank_obj;
     }
     void Bank::set_bank_config(string cfg_file){

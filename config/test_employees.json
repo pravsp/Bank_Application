@@ -1,0 +1,34 @@
+{
+    "employees": [
+        {
+            "Emp_id":"zldVI5ZuGX",
+            "Person_Details":{
+                "Name":"Ramsy",
+                "E-mail":"ramsy@abcbank.com",
+                "Phone":"+917381928374",
+                "Address":{
+                    "Street":"Ulsoor Lake Blvd",
+                    "City":"Bangalore",
+                    "State":"Karnataka",
+                    "Country":"India",
+                    "Zipcode":"560018"
+                }
+            }
+        },
+        {
+            "Emp_id":"6GXi5xr84P",
+            "Person_Details":{
+                "Name":"Aarna",
+                "E-mail":"aarna@abcbank.com",
+                "Phone":"+918934857205",
+                "Address":{
+                    "Street":"Cubbonpet",
+                    "City":"Bangalore",
+                    "State":"Karnataka",
+                    "Country":"India",
+                    "Zipcode":"560016"
+                }
+            }
+        }
+    ]
+}

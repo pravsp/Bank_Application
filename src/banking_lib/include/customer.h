@@ -1,5 +1,5 @@
-#ifndef CUSTOMER_H
-#define CUSTOMER_H
+#ifndef __CUSTOMER_H
+#define __CUSTOMER_H
 #include<iostream>
 #include<map>
 #include "person.h"
@@ -32,4 +32,4 @@ namespace banking_lib {
     };
 }
 
-#endif //CUSTOMER_H
+#endif //__CUSTOMER_H

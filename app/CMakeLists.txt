@@ -1,5 +1,8 @@
 file(GLOB BANKING_APP_SOURCES "*.cc")
 include_directories(${CMAKE_SOURCE_DIR}/src/banking_lib/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/banking_utils/include)
+include_directories(${CMAKE_SOURCE_DIR}/dist)
+
 add_executable(banking_app ${BANKING_APP_SOURCES})
 
 

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<map>
 #include "include/address.h"
-//#include "json/json.h"
+#include "json/json.h"
 
 using namespace std;
 
@@ -45,7 +45,7 @@ namespace banking_lib {
         return addr;
 
     }
-    /*
+    
     Address* Address::get_address_from_json_obj(Json::Value addr_jsn_obj){
         auto st_addr = addr_jsn_obj["Street"];
         auto city = addr_jsn_obj["City"];
@@ -61,7 +61,7 @@ namespace banking_lib {
 
         return new Address(st_addr.asString(), city.asString(), state.asString(), country.asString(), z_code.asString());
     }
-    */
+    
     Address* Address::get_address_from_map(map<string,string> json_map){
         
         auto st_addr = json_map["Street"];
@@ -78,6 +78,14 @@ namespace banking_lib {
         return new Address(st_addr, city, state, country, z_code);
         
     }
-
+    Json::Value Address::ConvertAddressToJson(Address* inst){
+        Json::Value root;
+        root["Street"] = inst->street_address;
+        root["City"] = inst->city;
+        root["State"] = inst->state;
+        root["Country"] = inst->country;
+        root["Zipconde"] = inst->zipcode;
+        return root;
+    }
 
 }

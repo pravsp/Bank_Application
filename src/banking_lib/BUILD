@@ -9,5 +9,5 @@ cc_library(
     deps = [
         "//src/banking_utils:bank-utils",
     ],
-    copts = ["-Isrc/banking_utils/include"]
+    copts = ["-Isrc/banking_utils/include", "-Isrc/banking_lib/include"]
 )

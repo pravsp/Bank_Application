@@ -1,5 +1,5 @@
 ###################################################
-# Cplusplus Template library
+# Cplusplus Banking Application
 ###################################################
 
 # The code is integrated with gtest suite and can execute unit test with gtest
@@ -17,12 +17,19 @@ STEP2: Get into the workspace
 STEP3: Clean any existing build using the below command
     `bazel clean --expunge`
 STEP4: Trigger the Bazel test as follows
-    `bazel test //template_lib/test:template_test`
+    `bazel test //test/banking_lib:bank_oper_test`
+    `bazel test //test/utilities:utilities_tests`
                     (or)
-    `bazel test -s //template_lib/test:template_test`
+    `bazel test -s //test/banking_lib:bank_oper_test`
+    `bazel test -s //test/utilities:utilities_tests`
     # Use -s option only to enable verbose mode of commands used by bazel
 
 The above steps will trigger the test using the gtest suite along with results
+
+STEP5: Trigger the application build as follows
+    `bazel build //app:banking-app -c dbg`
+STEP6: Application can be executed as follows from workspace
+    `./bazel-bin/app/banking-app`
 
 NOTE: While using Bazel build Gtest suite is being compiled locally. Raised the following git issue
 https://github.com/google/googletest/issues/2617

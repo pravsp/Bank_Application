@@ -3,6 +3,8 @@
 file(GLOB BANK_CFG_TEST_SOURCES "*.cc")
 
 include_directories(${PROJECT_SOURCE_DIR}/src/banking_lib/include)
+include_directories(${PROJECT_SOURCE_DIR}/src/banking_utils/include)
+include_directories(${PROJECT_SOURCE_DIR}/dist)
 add_executable(bank_cfg_test ${BANK_CFG_TEST_SOURCES})
 target_link_libraries(bank_cfg_test gtest_main)
 set_property(TARGET bank_cfg_test PROPERTY CXX_STANDARD 17)

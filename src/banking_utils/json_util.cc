@@ -14,8 +14,10 @@ namespace banking_lib_utilities{
         Json::Value obj;
         try{
             ifstream ifs(m_jfile);
-            reader.parse(ifs, obj);
-
+            if(!(reader.parse(ifs, obj))){
+                cout<<"Error Parsing the file: "<<this->m_jfile<<endl;
+            }
+            ifs.close();
             return obj;
         }catch(const ios_base::failure& ex){
             cerr<<"Caught: std::ios_base::failure errno: "<<ex.code().message()<<endl;
@@ -24,8 +26,10 @@ namespace banking_lib_utilities{
 
     }
 
-    bool JsonUtil::writeToJson(Json::Value& j_obj){
+    bool JsonUtil::writeToJson(Json::Value j_obj){
         try{
+            cout << "writing to file: "<<this->m_jfile<<endl;
+            cout << "writing data: "<< j_obj <<endl;
             ofstream ofs(this->m_jfile);
             Json::StyledWriter writer;
 
@@ -33,7 +37,7 @@ namespace banking_lib_utilities{
             ofs.close();
             return true;
         } catch(const ios_base::failure& ex){
-            cerr<<"Caught: std::ios_base::failure errno: "<<ex.code().message()<<endl;
+            cout<<"Caught: std::ios_base::failure errno: "<<ex.code().message()<<endl;
             return false;
         }
 
